@@ -22,6 +22,7 @@ PokemonData _$PokemonDataFromJson(Map<String, dynamic> json) {
 mixin _$PokemonData {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
+  String get url => throw _privateConstructorUsedError;
   String get imageUrl => throw _privateConstructorUsedError;
 
   /// Serializes this PokemonData to a JSON map.
@@ -40,7 +41,7 @@ abstract class $PokemonDataCopyWith<$Res> {
           PokemonData value, $Res Function(PokemonData) then) =
       _$PokemonDataCopyWithImpl<$Res, PokemonData>;
   @useResult
-  $Res call({int id, String name, String imageUrl});
+  $Res call({int id, String name, String url, String imageUrl});
 }
 
 /// @nodoc
@@ -60,6 +61,7 @@ class _$PokemonDataCopyWithImpl<$Res, $Val extends PokemonData>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? url = null,
     Object? imageUrl = null,
   }) {
     return _then(_value.copyWith(
@@ -70,6 +72,10 @@ class _$PokemonDataCopyWithImpl<$Res, $Val extends PokemonData>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String,
       imageUrl: null == imageUrl
           ? _value.imageUrl
@@ -87,7 +93,7 @@ abstract class _$$PokemonDataImplCopyWith<$Res>
       __$$PokemonDataImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, String imageUrl});
+  $Res call({int id, String name, String url, String imageUrl});
 }
 
 /// @nodoc
@@ -105,6 +111,7 @@ class __$$PokemonDataImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
+    Object? url = null,
     Object? imageUrl = null,
   }) {
     return _then(_$PokemonDataImpl(
@@ -115,6 +122,10 @@ class __$$PokemonDataImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      url: null == url
+          ? _value.url
+          : url // ignore: cast_nullable_to_non_nullable
               as String,
       imageUrl: null == imageUrl
           ? _value.imageUrl
@@ -128,7 +139,10 @@ class __$$PokemonDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$PokemonDataImpl implements _PokemonData {
   const _$PokemonDataImpl(
-      {required this.id, required this.name, required this.imageUrl});
+      {required this.id,
+      required this.name,
+      required this.url,
+      required this.imageUrl});
 
   factory _$PokemonDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$PokemonDataImplFromJson(json);
@@ -138,11 +152,13 @@ class _$PokemonDataImpl implements _PokemonData {
   @override
   final String name;
   @override
+  final String url;
+  @override
   final String imageUrl;
 
   @override
   String toString() {
-    return 'PokemonData(id: $id, name: $name, imageUrl: $imageUrl)';
+    return 'PokemonData(id: $id, name: $name, url: $url, imageUrl: $imageUrl)';
   }
 
   @override
@@ -152,13 +168,14 @@ class _$PokemonDataImpl implements _PokemonData {
             other is _$PokemonDataImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.url, url) || other.url == url) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, imageUrl);
+  int get hashCode => Object.hash(runtimeType, id, name, url, imageUrl);
 
   /// Create a copy of PokemonData
   /// with the given fields replaced by the non-null parameter values.
@@ -180,6 +197,7 @@ abstract class _PokemonData implements PokemonData {
   const factory _PokemonData(
       {required final int id,
       required final String name,
+      required final String url,
       required final String imageUrl}) = _$PokemonDataImpl;
 
   factory _PokemonData.fromJson(Map<String, dynamic> json) =
@@ -189,6 +207,8 @@ abstract class _PokemonData implements PokemonData {
   int get id;
   @override
   String get name;
+  @override
+  String get url;
   @override
   String get imageUrl;
 
