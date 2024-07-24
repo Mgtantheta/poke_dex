@@ -10,6 +10,7 @@ _$PokemonDataImpl _$$PokemonDataImplFromJson(Map<String, dynamic> json) =>
     _$PokemonDataImpl(
       id: (json['id'] as num).toInt(),
       name: json['name'] as String,
+      url: json['url'] as String,
       imageUrl: json['imageUrl'] as String,
     );
 
@@ -17,5 +18,6 @@ Map<String, dynamic> _$$PokemonDataImplToJson(_$PokemonDataImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'url': instance.url,
       'imageUrl': instance.imageUrl,
     };
