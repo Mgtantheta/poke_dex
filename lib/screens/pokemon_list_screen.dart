@@ -23,7 +23,7 @@ class PokemonListScreen extends HookConsumerWidget {
     }, [scrollController]);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Pokémon List')),
+      appBar: AppBar(title: const Text('Poké Dex')),
       body: pokemonState.hasError
           ? Center(child: Text('Error: ${pokemonState.errorMessage}'))
           : pokemonState.pokemons.isEmpty
@@ -42,17 +42,15 @@ class PokemonListScreen extends HookConsumerWidget {
           final pokemon = pokemonState.pokemons[index];
           return ListTile(
             title: Text(pokemon.name),
-            leading: pokemon.imageUrl != null
-                ? Image.network(
-              pokemon.imageUrl!,
+            leading: Image.network(
+              pokemon.imageUrl,
               errorBuilder: (context, error, stackTrace) =>
               const Icon(Icons.error),
               loadingBuilder: (context, child, loadingProgress) =>
               loadingProgress == null
                   ? child
                   : const CircularProgressIndicator(),
-            )
-                : const Icon(Icons.catching_pokemon),
+            ),
             subtitle: Text('ID: ${pokemon.id}'),
           );
         },
