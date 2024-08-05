@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'screens/pokemon_list_screen.dart';
+import 'router/router.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'PokéDex',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const PokemonListScreen(),
+      routerConfig: router,
     );
   }
 }
